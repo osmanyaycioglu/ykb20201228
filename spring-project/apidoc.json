@@ -1,0 +1,980 @@
+{
+"openapi": "3.0.1",
+"info": {
+"title": "OpenAPI definition",
+"version": "v0"
+},
+"servers": [
+{
+"url": "http://127.0.0.1:9090",
+"description": "Generated server url"
+}
+],
+"paths": {
+"/persontest/hello": {
+"get": {
+"tags": [
+"person-test-rest"
+],
+"operationId": "helloGet",
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+},
+"put": {
+"tags": [
+"person-test-rest"
+],
+"operationId": "helloPut",
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+},
+"post": {
+"tags": [
+"person-test-rest"
+],
+"operationId": "helloPost",
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+},
+"delete": {
+"tags": [
+"person-test-rest"
+],
+"operationId": "helloDelete",
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+},
+"patch": {
+"tags": [
+"person-test-rest"
+],
+"operationId": "helloPatch",
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/api/v1/person/d1/provision/": {
+"get": {
+"tags": [
+"person-rest-d-1"
+],
+"operationId": "get_1",
+"parameters": [
+{
+"name": "pid",
+"in": "query",
+"required": true,
+"schema": {
+"type": "integer",
+"format": "int64"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/Person"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+},
+"put": {
+"tags": [
+"person-rest-d-1"
+],
+"operationId": "add",
+"requestBody": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/Person"
+}
+}
+},
+"required": true
+},
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+},
+"post": {
+"tags": [
+"person-rest-d-1"
+],
+"operationId": "update_1",
+"requestBody": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/Person"
+}
+}
+},
+"required": true
+},
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+},
+"delete": {
+"tags": [
+"person-rest-d-1"
+],
+"operationId": "remove_1",
+"parameters": [
+{
+"name": "pid",
+"in": "query",
+"required": true,
+"schema": {
+"type": "integer",
+"format": "int64"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/persontest/hello6": {
+"post": {
+"tags": [
+"person-test-rest"
+],
+"operationId": "hello6",
+"requestBody": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/Person"
+}
+}
+},
+"required": true
+},
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/api/v1/person/d2/provision/update": {
+"post": {
+"tags": [
+"person-rest-d-2"
+],
+"operationId": "update",
+"requestBody": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/Person"
+}
+}
+},
+"required": true
+},
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/api/v1/person/d2/provision/add": {
+"post": {
+"tags": [
+"person-rest-d-2"
+],
+"operationId": "add_1",
+"requestBody": {
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/Person"
+}
+}
+},
+"required": true
+},
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/": {
+"get": {
+"tags": [
+"hello-rest"
+],
+"operationId": "hello",
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/persontest/hello5": {
+"get": {
+"tags": [
+"person-test-rest"
+],
+"operationId": "hello5",
+"parameters": [
+{
+"name": "xyz",
+"in": "header",
+"required": true,
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "abc",
+"in": "header",
+"required": true,
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/persontest/hello4/{xyz}": {
+"get": {
+"tags": [
+"person-test-rest"
+],
+"operationId": "hello4",
+"parameters": [
+{
+"name": "xyz",
+"in": "path",
+"required": true,
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "abc",
+"in": "query",
+"required": true,
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/persontest/hello3": {
+"get": {
+"tags": [
+"person-test-rest"
+],
+"operationId": "hello3",
+"parameters": [
+{
+"name": "xyz",
+"in": "query",
+"required": true,
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "abc",
+"in": "query",
+"required": true,
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/persontest/hello2/{xyz}/{abc}": {
+"get": {
+"tags": [
+"person-test-rest"
+],
+"operationId": "hello2",
+"parameters": [
+{
+"name": "xyz",
+"in": "path",
+"required": true,
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "abc",
+"in": "path",
+"required": true,
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/api/v1/person/d2/search/surname": {
+"get": {
+"tags": [
+"person-search-rest-d-2"
+],
+"operationId": "getBySurname",
+"parameters": [
+{
+"name": "surname",
+"in": "query",
+"required": true,
+"schema": {
+"type": "string"
+}
+},
+{
+"name": "header",
+"in": "query",
+"required": true,
+"schema": {
+"$ref": "#/components/schemas/Headers"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/components/schemas/Person"
+}
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/api/v1/person/d2/search/name": {
+"get": {
+"tags": [
+"person-search-rest-d-2"
+],
+"operationId": "getByName",
+"parameters": [
+{
+"name": "name",
+"in": "query",
+"required": true,
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/components/schemas/Person"
+}
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/api/v1/person/d2/search/all": {
+"get": {
+"tags": [
+"person-search-rest-d-2"
+],
+"operationId": "getAll",
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/components/schemas/Person"
+}
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/api/v1/person/d2/provision/get": {
+"get": {
+"tags": [
+"person-rest-d-2"
+],
+"operationId": "get",
+"parameters": [
+{
+"name": "pid",
+"in": "query",
+"required": true,
+"schema": {
+"type": "integer",
+"format": "int64"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/Person"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/api/v1/person/d2/provision/delete": {
+"get": {
+"tags": [
+"person-rest-d-2"
+],
+"operationId": "remove",
+"parameters": [
+{
+"name": "pid",
+"in": "query",
+"required": true,
+"schema": {
+"type": "integer",
+"format": "int64"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "string"
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+},
+"/api/v1/person/d1/search/name": {
+"get": {
+"tags": [
+"person-search-rest-d-1"
+],
+"operationId": "getByName_1",
+"parameters": [
+{
+"name": "name",
+"in": "query",
+"required": true,
+"schema": {
+"type": "string"
+}
+}
+],
+"responses": {
+"200": {
+"description": "OK",
+"content": {
+"*/*": {
+"schema": {
+"type": "array",
+"items": {
+"$ref": "#/components/schemas/Person"
+}
+}
+}
+}
+},
+"400": {
+"description": "Bad Request",
+"content": {
+"*/*": {
+"schema": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+}
+}
+}
+}
+}
+}
+},
+"components": {
+"schemas": {
+"ErrorObj": {
+"type": "object",
+"properties": {
+"subErrors": {
+"type": "array",
+"items": {
+"$ref": "#/components/schemas/ErrorObj"
+}
+},
+"subDomain": {
+"type": "string"
+},
+"boundedContext": {
+"type": "string"
+},
+"microservice": {
+"type": "string"
+},
+"desc": {
+"type": "string"
+},
+"cause": {
+"type": "integer",
+"format": "int32"
+}
+}
+},
+"Person": {
+"required": [
+"name",
+"surname"
+],
+"type": "object",
+"properties": {
+"name": {
+"maxLength": 25,
+"minLength": 2,
+"type": "string"
+},
+"surname": {
+"maxLength": 30,
+"minLength": 3,
+"type": "string"
+},
+"height": {
+"maximum": 250,
+"minimum": 50,
+"type": "integer",
+"format": "int32"
+},
+"birthday": {
+"type": "string",
+"format": "date"
+},
+"tckn": {
+"type": "string"
+},
+"national": {
+"type": "string",
+"enum": [
+"TC",
+"OTHER"
+]
+}
+}
+},
+"Headers": {
+"type": "object"
+}
+}
+}
+}
