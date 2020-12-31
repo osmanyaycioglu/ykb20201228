@@ -1,7 +1,10 @@
 package com.training.ykb.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +16,19 @@ import com.training.ykb.services.OrderService;
 
 @RestController
 @RequestMapping("/api/v1/order")
+@RefreshScope
 public class OrderRest {
+
+    @Value("${a.c.d}")
+    private String       acd;
 
     @Autowired
     private OrderService os;
+
+    @GetMapping("/test")
+    public String test() {
+        return this.acd;
+    }
 
     @PostMapping("/place")
     public String placeOrder(@Validated @RequestBody final Order order) {

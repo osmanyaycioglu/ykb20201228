@@ -2,6 +2,7 @@ package com.training.ykb.services;
 
 import java.util.List;
 
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -10,6 +11,7 @@ import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import com.netflix.discovery.shared.Application;
 import com.training.ykb.clients.IPaymentClient;
+import com.training.ykb.model.Notification;
 import com.training.ykb.model.Order;
 import com.training.ykb.model.PaymentRequest;
 import com.training.ykb.rest.error.RestException;
@@ -26,6 +28,9 @@ public class OrderService {
     @Autowired
     private EurekaClient   ec;
 
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
     public String placeOrder(final Order order) {
         PaymentRequest pay = new PaymentRequest();
         pay.setCustomerId("JHKJH-JKHKH");
@@ -40,7 +45,14 @@ public class OrderService {
         PaymentRequest pay = new PaymentRequest();
         pay.setCustomerId("JHKJH-JKHKH");
         pay.setAmount(order.getAmount());
-        return this.pc.charge(pay);
+        String chargeLoc = this.pc.charge(pay);
+        Notification notificationLoc = new Notification();
+        notificationLoc.setDestination("23847239847");
+        notificationLoc.setMessage("Sayın Osman , Siparişiniz en kısa zamanada gönderilecek.");
+        this.rabbitTemplate.convertAndSend("notf_exchange_topic",
+                                           "notify.email.xyz",
+                                           notificationLoc);
+        return chargeLoc;
     }
 
 

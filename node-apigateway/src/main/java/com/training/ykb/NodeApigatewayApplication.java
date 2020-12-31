@@ -1,19 +1,17 @@
 package com.training.ykb;
 
-import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients
-@EnableRabbit
-public class MsOrderApplication {
+@EnableZuulProxy
+public class NodeApigatewayApplication {
 
     public static void main(final String[] args) {
-        SpringApplication.run(MsOrderApplication.class,
+        SpringApplication.run(NodeApigatewayApplication.class,
                               args);
     }
 

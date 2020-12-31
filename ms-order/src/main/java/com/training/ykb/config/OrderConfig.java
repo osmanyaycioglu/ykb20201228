@@ -1,5 +1,7 @@
 package com.training.ykb.config;
 
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +25,11 @@ public class OrderConfig {
     @Bean
     public ErrorDecoder errorDecoder() {
         return new ErrorDecoderImpl();
+    }
+
+    @Bean
+    public MessageConverter messageConverter() {
+        return new Jackson2JsonMessageConverter();
     }
 
 }
